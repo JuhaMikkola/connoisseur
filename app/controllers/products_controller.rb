@@ -3,13 +3,21 @@ require 'open-uri'
 class ProductsController < ApplicationController
 
   def index
-    products_json = open('http://lcboapi.com/products?per_page=50').read
+    the_url = ""
+    if params['page'] == ""
+      the_url = "http://lcboapi.com/products"
+    else
+      the_url = "http://lcboapi.com/products?page=" + "#{params['page']}"
+    end
+
+    products_json = open(the_url).read
+    
     @products = JSON.parse(products_json)
   end
 
   def show
     id = params[:id]
-    products_json = open('http://lcboapi.com/products?per_page=50').read
+    products_json = open('http://lcboapi.com/products').read
     products = JSON.parse(products_json)
     products['result'].each do |product|
       @product=product if product['id'].to_i==id.to_i 

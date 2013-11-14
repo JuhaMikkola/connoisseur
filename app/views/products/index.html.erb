@@ -19,5 +19,7 @@
 <% end %>
 
 </table>
-<p>
+
+<div><%= link_to "< Previous Page", "#{@products['pager']['previous_page_path']}" %></div>
 <div><%= link_to "Stores List", "/stores" %></div>
+<div><%= link_to "Next Page >", "#{@products['pager']['next_page_path']}" %></div>
