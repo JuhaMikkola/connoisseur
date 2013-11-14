@@ -1,0 +1,23 @@
+<h1>LCBO Stores List</h1>
+
+<table>
+
+  <tr>
+    <th>Store Name</th>
+    <th>Address Line 1</th>
+    <th>Address Line 2</th>
+    <th>City</th>
+  </tr>
+
+<% @stores['result'].each do |store| %>
+  <tr>
+    <td><%= link_to store['name'], store_path(store['id']) %></td>
+    <td><%= store['address_line_1'] %></td>
+    <td><%= store['address_line_2'] %></td>
+    <td><%= store['city'] %></td>
+  </tr>
+<% end %>
+
+</table>
+<p>
+<div><%= link_to "Products List", "/products" %></div>

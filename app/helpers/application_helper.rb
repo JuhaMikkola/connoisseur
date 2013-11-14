@@ -5,4 +5,10 @@ module ApplicationHelper
     sprintf("%.2f", price_in_dollars)
   end
 
+  def convert_time(time_in_weird_format)
+    hour = time_in_weird_format / 60
+    mins = time_in_weird_format % 60
+    return "#{hour}:0#{mins}"
+  end
+
 end

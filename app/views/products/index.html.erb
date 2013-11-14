@@ -1,9 +1,23 @@
 <h1>LCBO Products</h1>
 
+<table>
+
+  <tr>
+    <th>Product Name</th>
+    <th>Product Price</th>
+    <th>Category</th>
+    <th>Current Inventory</th>
+  </tr>
+
 <% @products['result'].each do |product| %>
-  <section>
-    <%= link_to product['name'], product_path(product['id']) %>
-    <%= format_price product['price_in_cents'] %>
-    <%= product['primary_category'] %>
-  </section>
+  <tr>
+    <td><%= link_to product['name'], product_path(product['id']) %></td>
+    <td><%= format_price product['price_in_cents'] %></td>
+    <td><center><%= product['primary_category'] %></center></td>
+    <td><%= product['inventory_count'] %></td>
+  </tr>
 <% end %>
+
+</table>
+<p>
+<div><%= link_to "Stores List", "/stores" %></div>

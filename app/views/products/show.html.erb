@@ -2,8 +2,9 @@
 
 <div>
 Product Name: <%= @product['name'] %> <br>
-Product Price: <%= @product['price_in_cents']%> <br>
+Product Price: <%= format_price(@product['price_in_cents'])%> <br>
 Product Category: <%= @product['primary_category']%> <br>
+Current Inventory: <%= @product['inventory_count']%> <br>
 </div>
 <p>
 <div><%= link_to "Back", "/products" %></div>

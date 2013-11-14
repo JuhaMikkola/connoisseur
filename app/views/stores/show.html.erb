@@ -1,0 +1,69 @@
+<h1>Store View</h1>
+
+<h2>Store Details</h2>
+<div>
+Store Name: <%= @store['name'] %> <br>
+Store Address: <%= @store['address_line_1'] %> <br>
+Store Address: <%= @store['address_line_2'] %> <br>
+Store City: <%= @store['city'] %> <br>
+</div>
+<h2>Store Hours</h2>
+
+<table>
+
+  <tr>
+    <th>Day</th>
+    <th>Open</th>
+    <th>Close</th>
+  </tr>
+
+  <tr>
+    <td>Sunday</td>
+    <td><%= convert_time(@store['sunday_open']) %></td>
+    <td><%= convert_time(@store['sunday_close']) %></td>
+  </tr>
+
+  <tr>
+    <td>Monday</td>
+    <td><%= convert_time(@store['monday_open']) %></td>
+    <td><%= convert_time(@store['monday_close']) %></td>
+  </tr>
+
+  <tr>
+    <td>Tuesday</td>
+    <td><%= convert_time(@store['tuesday_open']) %></td>
+    <td><%= convert_time(@store['tuesday_close']) %></td>
+  </tr>
+
+  <tr>
+    <td>Wednesday</td>
+    <td><%= convert_time(@store['wednesday_open']) %></td>
+    <td><%= convert_time(@store['wednesday_close']) %></td>
+  </tr>
+
+  <tr>
+    <td>Thursday</td>
+    <td><%= convert_time(@store['thursday_open']) %></td>
+    <td><%= convert_time(@store['thursday_close']) %></td>
+  </tr>
+
+  <tr>
+    <td>Friday</td>
+    <td><%= convert_time(@store['friday_open']) %></td>
+    <td><%= convert_time(@store['friday_close']) %></td>
+  </tr>
+
+  <tr>
+    <td>Saturday</td>
+    <td><%= convert_time(@store['saturday_open']) %></td>
+    <td><%= convert_time(@store['saturday_close']) %></td>
+  </tr>
+
+
+
+</table>
+
+<p>Note: We like the 24-hour clock. This system is the most commonly used time notation in the world today and is the international standard (ISO 8601) notation for time of day, according to Wikipedia.</p>
+
+<p>
+<div><%= link_to "Back", "/stores" %></div>
