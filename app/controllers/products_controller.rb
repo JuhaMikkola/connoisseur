@@ -16,12 +16,13 @@ class ProductsController < ApplicationController
   end
 
   def show
-    id = params[:id]
-    products_json = open('http://lcboapi.com/products').read
-    products = JSON.parse(products_json)
-    products['result'].each do |product|
-      @product=product if product['id'].to_i==id.to_i 
-    end
+
+    base_url = ""
+    base_url = "http://lcboapi.com/products/" + "#{params[:id]}"
+    products_json = open(base_url).read
+    
+    @product = JSON.parse(products_json)
+
   end
 
   # private
